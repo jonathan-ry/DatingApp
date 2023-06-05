@@ -54,7 +54,7 @@ namespace API.Controllers
                 x.UserName.ToLower() == credentials.Username.ToLower());
             if (user == null) 
             {
-                return Unauthorized();
+                return Unauthorized("User Not Found");
             }
 
             using var hmac = new HMACSHA512(user.PasswordSalt);
